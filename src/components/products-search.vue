@@ -5,7 +5,10 @@
             <p class="control">
                 <span class="select">
                     <label for="type">
-                        <select name="type">
+                        <select
+                            v-model="type"
+                            name="type"
+                        >
                             <option value="books">Books</option>
                             <option value="Music">Music</option>
                             <option value="Games">Games</option>
@@ -24,9 +27,12 @@
                 </label>
             </p>
             <p class="control">
-                <a class="button">
+                <button
+                    class="button"
+                    @click="searchHandler()"
+                >
                     Search
-                </a>
+                </button>
             </p>
         </div>
     </div>
@@ -38,7 +44,13 @@ export default {
     data() {
         return {
             query: "",
+            type: "Category",
         };
+    },
+    methods: {
+        searchHandler() {
+            this.$emit("search", { query: this.query, type: this.type });
+        },
     },
 };
 </script>

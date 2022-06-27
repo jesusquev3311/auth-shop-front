@@ -82,21 +82,23 @@ export default {
                 password: this.user.password,
             })
                 .then((response) => {
-                    if (response.data.success === true) {
+                    console.log(response);
+
+                    if (response.status === 200) {
                         this.authenticated = true;
                         this.$noty.success("Login Successfully", {
                             killer: true,
                             timeout: 2000,
                             layout: "topRight",
                         });
-                        // this.$router.push({ name: "Leads" });
+                        this.$router.push({ name: "products" });
                     } else {
                         this.$noty.error("Something went wrong!", {
                             killer: true,
                             timeout: 4000,
                             layout: "topRight",
                         });
-                        // this.$router.push({ name: "Login" });
+                        this.$router.push({ name: "home" });
                     }
                 }).catch((err) => console.log(err));
         },

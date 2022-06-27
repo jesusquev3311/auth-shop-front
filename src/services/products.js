@@ -1,7 +1,7 @@
 import Api from "@/services/API";
 
 export default {
-    Products(url = "") {
+    Products(url = "products") {
         return {
             getAll: () => Api().get(url),
             getOne: (id) => Api().get(`${url}/${id}`),

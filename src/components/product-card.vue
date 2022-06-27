@@ -2,12 +2,13 @@
     <div class="card">
         <header class="card-header">
             <p class="card-header-title">
-                {{ product.title }}
+                {{ product.name }}
             </p>
         </header>
 
         <div class="card-content">
             <div class="content">
+                <p><strong>Type: </strong>{{ product.type }}</p>
                 <p>{{ product.description }}</p>
             </div>
         </div>
